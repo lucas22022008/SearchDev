@@ -1,0 +1,182 @@
+
+/* importando a fonte do google fonts, eu decidi usar a fonte "Poppins" em toda a página */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* configurações gerais e importantes para qualquer página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+}
+
+/* declarando umas configurações para o corpo da minha página para que ela não quebre */
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    /* "overflow-x: hidden" serve para que mesmo que eu tenha algum elemento passando para fora da tela não seja criado um scroll-vertical, assim eu consigo posicionar coisas um pouco fora da tela sem quebrar o site */
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+/* conteúdo principal onde coloquei os intens um a baixo do outro e tudo centralizado */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 24px 30px 24px;
+    /* adicionei um position relative para que eu possa adicionar um position absolute nas div que darão efeito de brilho */
+    position: relative;
+    z-index: 1;
+}
+
+/* estas são as divs de brilho, coloquei o position absolute para que eu possa posiciona-las em qualuqer lugar da minha tela */
+.effect {
+    position: absolute;
+    background: radial-gradient(#0bffeb, #28ff94);
+    opacity: .1;
+    z-index: -1;
+}
+
+/* "top" é a div de brilho que fica no topo da minha página, se prestar atenção, verá um efeito bem no canto superior e centralizado */
+#top {
+    width: 400px;
+    height: 150px;
+    border-radius: 50%;
+    top: -90px;
+    left: 50%;
+    translate: -50%;
+    filter: blur(20px);
+}
+
+/* "bottom" é uma div de brilho também, mas ela é muito maior e fica no canto inferior esquerdo do site */
+#bottom {
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    /* top: -500px; */
+    left: -500px;
+    filter: blur(80px);
+}
+
+/* aqui eu posicionei onde eu queria aquela imagem com as linhas circulares */
+img {
+    position: absolute;
+    top: 500px;
+    right: -5px;
+    translate: 0 -50%;
+    z-index: -1;
+}
+
+/* estilizando a caixa onde está os textos e o input */
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 18px;
+}
+
+/* estilizando o título */
+.cabecalho h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+
+/* aqui eu criei um efeito de degradê para o meu texto que está entre as tags "span" */
+.cabecalho h1 span {
+    background-image: linear-gradient( to right, #0bffeb, #28ff94 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* estilizando o texto menor */
+.cabecalho p {
+    font-size: 1.5rem;
+}
+
+/* estilizando o input */
+input {
+    width: 100%;
+    height: 60px;
+    background-color: #525252;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    padding: 0 20px;
+    margin-top: 62px;
+}
+
+/* declarando comoo vai funcionar a minha div onde ficará os cards de cada freelancer */
+.freelancers {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    padding: 0 24px;
+}
+
+/* estilização para os cards do perfil de cada freelancer */
+.freelancer {
+    width: 100%;
+    height: 200px;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 12px 24px;
+    animation: entrada ease-out .2s;
+}
+
+/* uma animação minimalista para os cards aparecerem de forma mais suave */
+@keyframes entrada {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ".perfil" é aquela bola colorida, simbolizando uma foto de perfil */
+.perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* esta div serve apenas para que o nome e a descrição do profissional fiquem um a baixo do outro, caso contrário ficaria tudo em uma linha e não funcionaria bem */
+.sobre {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 8px;
+    width: 80%;
+}
+
+/* nome do freelancer */
+.sobre h2{
+    color: #141414;
+}
+
+/* descrição do freelancer */
+.sobre p {
+    color: #303030;
+}
+
+
+/* aqui eu adicionei responsividade ao site, antes os cards ficavam em coluna, agora eles ficam em linha a medida do possível */
+@media (min-width: 1000px) {
+    .freelancer {
+        width: 45%;
+        max-width: 700px;
+    }
+}

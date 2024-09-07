@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSearch - Contrate os melhores Freelancers para seu site</title>
+    <!-- link para o css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS com os freelancers e suas informações -->
+    <script src="freelancers.js"></script>
+    <!-- JS que faz a parada toda funcionar 👍 -->
+    <script type="module" src="app.js" defer></script>
+</head>
+<body>
+    <!-- conteúdo principal da minha página -->
+    <main>
+        <!-- essas divs são para dar um chan na página, adicionando o efeito de brilho -->
+        <div class="effect" id="top"></div>
+        <div class="effect" id="bottom"></div>
+        <!-- uma imagem com algumas linhas circulares pra enfeitar mais a página (eu gosto) -->
+        <img src="circles.png" alt="Circulos">
+
+        <!-- Aqui é a div onde fica auqeles textos grandoes -->
+        <div class="cabecalho">
+            <h1>Os Melhores <span>Devs</span> do Brasil</h1>
+            <p>Contrate os Melhores Freelancers para seu Projeto</p>
+
+            <!-- input pra pesquisa -->
+            <input type="text" name="busca" id="busca" placeholder="Busque por Freelancers ou por área de atuação..." onkeyup="filtrarDivs()">
+        </div>
+
+        <!-- Esta div é muito importante pois é nela onde será carregado cada freelancer através do script no arquivo app.js -->
+        <div class="freelancers" id="lista-pessoas">
+
+        </div>
+    </main>
+</body>
+</html>
